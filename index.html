@@ -1,6 +1,11 @@
 <!-- Add jQuery library -->
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/lumen/bootstrap.min.css">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
 <!-- Add fancyBox -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" type="text/css" media="screen" />
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
@@ -17,7 +22,13 @@
 <a class="fancybox" rel="group" href="https://c1.staticflickr.com/8/7328/27240704240_7dd67396e1_c.jpg"><img src="https://c1.staticflickr.com/8/7328/27240704240_7dd67396e1_q.jpg" alt="" /></a>
 
 <script type="text/javascript">
-	$(document).ready(function() {
-		$(".fancybox").fancybox();
-	});
+$(".fancybox").fancybox({
+    beforeShow : function() {
+        var alt = this.element.find('img').attr('alt');
+        
+        this.inner.find('img').attr('alt', alt);
+        
+        this.title = alt;
+    }
+});
 </script>
